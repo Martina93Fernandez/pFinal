@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ficha de Socio</title>
+    <link rel="stylesheet" href="css/style2.css" />
+  </head>
+
+  <body>
+    <div class="ficha-container">
+      <h2 class="titulo-brillo">Ficha de Socio</h2>
+        <div style="height: 18px;"></div>
+    
+      <form action="php/admin_socio.php" method="post" class="form-ficha">
+        <div class="ficha-dato">
+          <div class="ficha-info">
+            <input
+              type="text"
+              id="dni"
+              name="dni"
+              required
+              placeholder="DNI / Número de socio"
+            />
+          </div>
+        </div>
+
+        <div class="ficha-dato">
+          <div class="ficha-info">
+            <input
+              type="text"
+              id="nombre"
+              name="nombre"
+              required
+              placeholder="Nombre"
+            />
+          </div>
+        </div>
+        <div class="ficha-dato">
+          <div class="ficha-info">
+            <input
+              type="text"
+              id="apellido"
+              name="apellido"
+              required
+              placeholder="Apellido"
+            />
+          </div>
+        </div>
+        <div class="ficha-dato">
+          <label for="nacimiento" class="ficha-label">Fecha de nacimiento</label>
+          <div class="ficha-info">
+            <input
+              type="date"
+              id="nacimiento"
+              name="nacimiento"
+              required
+              placeholder="Fecha de nacimiento"
+            />
+          </div>
+        </div>
+        <div class="ficha-dato">
+          <div class="ficha-info">
+            <input
+              type="tel"
+              id="telefono"
+              name="telefono"
+              required
+              placeholder="Teléfono"
+            />
+          </div>
+        </div>
+        <div class="ficha-dato">
+          <div class="ficha-info">
+            <input
+              type="text"
+              id="direccion"
+              name="direccion"
+              required
+              placeholder="Dirección"
+            />
+          </div>
+        </div>
+        <div class="ficha-dato">
+          <label for="fecha_ingreso" class="ficha-label">Fecha de ingreso</label>
+          <div class="ficha-info">
+            <input
+              type="date"
+              id="fecha_ingreso"
+              name="fecha_ingreso"
+              required
+              placeholder="Fecha de ingreso"
+            />
+          </div>
+        </div>
+        <div class="ficha-dato">
+          <label for="cuota" class="ficha-label">Última cuota</label>
+          <div class="ficha-info">
+            <input
+              type="month"
+              id="cuota"
+              name="cuota"
+              required
+              placeholder="Última cuota"
+            />
+          </div>
+        </div>
+
+        <div class="ficha-dato full-width">
+          <div class="ficha-info">
+            <textarea
+              id="comentarios"
+              name="comentarios"
+              rows="3"
+              placeholder="Comentarios"
+            ></textarea>
+          </div>
+        </div>
+
+        <button
+          type="submit"
+          class="btn-cobrar-horizontal"
+          aria-label="Guardar"
+        >
+          Guardar
+        </button>
+      </form>
+        
+      <div class="ficha-rutina-row">
+        <label style="margin-top: 24px;">Rutina</label>
+        <button
+          class="btn-rutina"
+          onclick="window.open('rutina.pdf', '_blank')"
+          aria-label="Abrir rutina"
+        >
+          Abrir PDF
+        </button>
+      </div>
+      
+    
+    </div>
+    <div style="width: 100%; display: flex; justify-content: center; margin-top: 28px;">
+      <button class="btn-modificar-ficha" type="button">Modificar datos</button>
+    </div>
+  
+  </body>
+</html>

@@ -1,0 +1,39 @@
+# Ignore OS files
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+
+# Node
+node_modules/
+
+# Composer / PHP
+/vendor/
+/vendor
+composer.lock
+
+# Environment / secrets
+.env
+.env.local
+php/conexion.php
+
+# Logs and debug files
+php/*.log
+*.log
+
+# Build / misc
+dist/
+build/
+
+# OS
+Thumbs.db
+ehthumbs.db
+
+# Temp
+.sass-cache/
+.cache/
+
+# Ignore Live Server workspace
+.vscode/**/.history

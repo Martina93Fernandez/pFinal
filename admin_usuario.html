@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro de Usuario/Admin</title>
+  <link rel="stylesheet"  href="css/style2.css?v=1.0">
+</head>
+<body>
+  <div class="registro-container">
+    <h2 class="registro-titulo">Formulario de Registro</h2>
+  <form class="registro-form" action="php/registro.php" method="post" id="form-registro">
+      <div class="registro-campo">
+  <label for="nombre" class="registro-label">Nombre completo:</label>
+  <input class="registro-input" type="text" id="nombre" name="nombre" required>
+      </div>
+
+      <div class="registro-campo">
+  <label for="password" class="registro-label">Contraseña:</label>
+      <input class="registro-input" type="password" id="password" name="password" required>
+      </div>
+
+    <div class="registro-campo">
+  <label for="password2" class="registro-label">Repetir contraseña:</label>
+  <input class="registro-input" type="password" id="password2" name="password2" required>
+    </div>
+
+      <div class="registro-campo">
+  <label for="rol" class="registro-label">Rol:</label>
+      <select class="registro-select" id="rol" name="rol" >
+          <option value="usuario">Usuario</option>
+          <option value="administrador">Administrador</option>
+        </select>
+      </div>
+      <div class="registro-campo registro-boton-container">
+        <button class="registro-boton" type="submit">Registrarse</button>
+      </div>
+    </form>
+  </div>
+  <button class="btn-volver-admin" onclick="window.location.href='index.html'" aria-label="Volver">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+      <path d="M19 12H5M11 18l-6-6 6-6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+  <div id="registro-result" style="color:#ffd; text-align:center; margin-top:12px;"></div>
+
+  <script>
+    // Mostrar mensaje de resultado de registro según parámetro 'reg'
+    (function(){
+      const params = new URLSearchParams(window.location.search);
+      const r = params.get('reg');
+      const el = document.getElementById('registro-result');
+      if(!el) return;
+      if(r === 'success'){
+        el.style.color = '#9f9';
+        el.textContent = 'Registro completado con éxito. Ahora puedes iniciar sesión.';
+      } else if(r === 'error'){
+        el.style.color = '#f99';
+        el.textContent = 'Error al registrar el usuario. Revisa los datos o intenta más tarde.';
+      }
+    })();
+  </script>
+
+
+</body>
+</html>

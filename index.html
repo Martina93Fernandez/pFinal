@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>incio</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <img src="imagenes/logo.png" alt="logo" class="logo-brillo">
+    <h2 class="titulo-brillo">Ingresar</h2>
+    <form action="php/login.php" method="post" class="form-inline">
+        <div class="form-row">
+            <div class="form-fields">
+                <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
+                <input type="password" id="password" name="password" placeholder="Contraseña" required>
+            </div>
+            <button type="submit" class="boton_flecha" aria-label="Ingresar">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                    <path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+    </form>
+    <div class="registro-row">
+        <h3 class="titulo-brillo registro-text">¿No tienes cuenta?</h3>
+    <a href="admin_usuario.html" class="btn-registrarse">Registrarse</a>
+    </div>
+
+</body>
+</html>
