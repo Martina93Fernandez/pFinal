@@ -1,5 +1,5 @@
 <?php
-include 'conexion.php';
+include 'conexion.php'; //contiene el archivo de conexion a la base de datos
 
 // Asegurar que la petición es POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -8,11 +8,11 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit();
 }
 
-// Usar valores seguros para evitar notices
-$nombre = $_POST['nombre'] ?? '';
+//recoge los datos del formulario
+$nombre = $_POST['nombre'] ?? ''; //si algun campo no fue enviado
 $password = $_POST['password'] ?? '';
-$rol = $_POST['rol'] ?? 'usuario';
-
+$rol = $_POST['rol'] ?? 'usuario';//asigna por defecto 'usuario' si no se envía
+//verifica que los campos obligatorios no estén vacíos
 if ($nombre === '' || $password === '') {
     echo "<p>Faltan datos: nombre y contraseña son obligatorios. <a href='../admin_socio.html'>Volver</a></p>";
     exit();
@@ -27,11 +27,11 @@ if (!$res || $res->num_rows == 0) {
     exit();
 }
 
-// Encriptar contraseña
+// el hash de la contraseña para seguridad. password_hash encripta la contraseña
 $password_segura = password_hash($password, PASSWORD_DEFAULT);
 
 $sql = "INSERT INTO usuarios (nombre, password, rol) VALUES (?, ?, ?)";
-$stmt = $conn->prepare($sql);
+$stmt = $conn->prepare($sql);//prepara la consulta de manera segura. evita inyecciones SQL 
 if (!$stmt) {
     echo "Error en la preparación de la consulta: " . $conn->error;
     $conn->close();

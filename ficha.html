@@ -142,5 +142,49 @@
       <button class="btn-modificar-ficha" type="button">Modificar datos</button>
     </div>
   
+  <script>
+    // Precargar formulario con datos de la URL (desde ver_socio.php)
+    (function(){
+      const params = new URLSearchParams(window.location.search);
+      
+      // Campos a precargar
+      const campos = ['dni', 'nombre', 'apellido', 'nacimiento', 'telefono', 'direccion', 'fecha_ingreso', 'cuota', 'comentarios'];
+      
+      campos.forEach(campo => {
+        const valor = params.get(campo);
+        if (valor) {
+          const elemento = document.getElementById(campo);
+          if (elemento) {
+            elemento.value = decodeURIComponent(valor);
+          }
+        }
+      });
+      
+      // También manejar numeroSocio como DNI (compatibilidad)
+      const numeroSocio = params.get('numeroSocio');
+      if (numeroSocio && !params.get('dni')) {
+        const dniElement = document.getElementById('dni');
+        if (dniElement) {
+          dniElement.value = numeroSocio;
+        }
+      }
+      
+      // Cambiar título y botón según el modo
+      const modo = params.get('modo');
+      const titulo = document.querySelector('.titulo-brillo');
+      const boton = document.querySelector('.btn-cobrar-horizontal');
+      
+      if (modo === 'editar' && titulo && boton) {
+        titulo.textContent = 'Modificar Ficha de Socio';
+        boton.textContent = 'Actualizar';
+      } else if (modo === 'nuevo' && titulo) {
+        titulo.textContent = 'Nueva Ficha de Socio';
+      }
+      
+      // Debug: mostrar parámetros recibidos
+      console.log('Parámetros URL:', Object.fromEntries(params));
+    })();
+  </script>
+  
   </body>
 </html>

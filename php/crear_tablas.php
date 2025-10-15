@@ -13,7 +13,7 @@ if ($conn->connect_error) {
 }
 
 // Crear la base de datos si no existe
-$sql_create_db = "CREATE DATABASE IF NOT EXISTS $dbname";
+$sql_create_db = "CREATE DATABASE IF NOT EXISTS $dbname"; 
 if ($conn->query($sql_create_db) === TRUE) {
     echo "Base de datos '$dbname' lista.<br>";
 } else {
@@ -22,7 +22,7 @@ if ($conn->query($sql_create_db) === TRUE) {
 
 // Seleccionar la base de datos
 $conn->select_db($dbname);
-
+ 
 // Crear las tablas
 $sql = "
 CREATE TABLE IF NOT EXISTS usuarios (
