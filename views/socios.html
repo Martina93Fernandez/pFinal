@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8" />
     <title>Socios</title>
-    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="../assets/css/estilos.css">
 </head>
 <body>
     <div class="socios-container">
         <h2 class="titulo-brillo">Número de Socio</h2>
-        <form action="php/ver_socio.php" method="get" class="form-socios">
-            <input type="text" id="numeroSocio" name="numeroSocio" placeholder="Ingrese su número de socio" required class="input-socio">
+        <form action="../controllers/ver_socio.php" method="post" class="form-socios">
+            <input type="text" id="dni" name="dni" placeholder="Ingrese el DNI del socio" required class="input-socio">
             <button type="submit" class="btn-socios-submit" aria-label="Enviar">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
                     <path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
             </button>
         </form>
-    <a href="ficha.html" class="btn-agregar-socio">Agregar nuevo socio</a>
+    <a href="ficha.php" class="btn-agregar-socio">Agregar nuevo socio</a>
     </div>
     <a href="ingreso.html" class="btn-volver-brillo" aria-label="Volver">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none">

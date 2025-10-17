@@ -1,10 +1,10 @@
 <?php
-include 'conexion.php'; //contiene el archivo de conexion a la base de datos
+include '../models/conexion.php'; //contiene el archivo de conexion a la base de datos
 
 // Asegurar que la petición es POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     // Mostrar un mensaje claro y un enlace de vuelta al formulario
-    echo "<p>Método inválido. Usa el formulario de registro en <a href='../admin_socio.html'>Registro</a>.</p>";
+    echo "<p>Método inválido. Usa el formulario de registro en <a href='../views/admin_socio.html'>Registro</a>.</p>";
     exit();
 }
 
@@ -14,7 +14,7 @@ $password = $_POST['password'] ?? '';
 $rol = $_POST['rol'] ?? 'usuario';//asigna por defecto 'usuario' si no se envía
 //verifica que los campos obligatorios no estén vacíos
 if ($nombre === '' || $password === '') {
-    echo "<p>Faltan datos: nombre y contraseña son obligatorios. <a href='../admin_socio.html'>Volver</a></p>";
+    echo "<p>Faltan datos: nombre y contraseña son obligatorios. <a href='../views/admin_socio.html'>Volver</a></p>";
     exit();
 }
 
@@ -46,7 +46,7 @@ if ($stmt->execute()) {
     $sep = (strpos($ref, '?') === false) ? '?' : '&';
     header('Location: ' . $ref . $sep . 'reg=success');
   } else {
-    header('Location: ../ingreso.php?reg=success');
+    header('Location: ../controllers/ingreso.php?reg=success');
   }
   exit();
 } else {

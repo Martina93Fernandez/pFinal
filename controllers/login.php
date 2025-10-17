@@ -1,5 +1,5 @@
 <?php
-include 'conexion.php';
+include '../models/conexion.php';
 
 function validate($data){
     $data = trim($data);
@@ -34,7 +34,7 @@ if (isset($_POST['nombre']) && (isset($_POST['password']) || isset($_POST['contr
             $_SESSION['rol'] = $db_rol;
 
             // Redirigir ambos roles a ingreso.html (ruta existente)
-            header('Location: ../ingreso.html');
+            header('Location: ../views/ingreso.html');
             exit();
         } else {
             echo "Contraseña incorrecta";
